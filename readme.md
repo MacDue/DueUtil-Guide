@@ -47,7 +47,7 @@ In **DueUtil** you never will get quests.
 Here is an image of someone not getting a quest:
 <img src="https://dueutil.tech/img/logo.png">
 ```
-That would result in:
+That would result in:  
 <img src="http://i.imgur.com/3Hz92Fu.png" style="width: 350px">
 
 P.s.  
