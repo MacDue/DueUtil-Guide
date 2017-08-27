@@ -1,0 +1,110 @@
+<!doctype html>
+<!-- Test guide page -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=0.9, minimum-scale=0.9">
+        <title>DueUtil - How to Due</title>
+        <link rel="stylesheet" href="https://dueutil.tech/css/discord-embeds.css"/>
+        <script src="https://dueutil.tech/js/material.min.js"></script>
+        <link rel="icon" type="image/png" href="https://dueutil.tech/img/logo.png"/>
+        <link rel="stylesheet" type="text/css" href="https://dueutil.tech/css/due-style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://dueutil.tech/css/material.min.css"/>
+        <script src="test.js" charset="UTF-8"></script>
+    </head>
+    <style>
+    @font-face{font-family:icomoon;src:url(icons.ttf?eobfje) format('truetype');font-weight:400;font-style:normal}[class*=" icon-"],[class^=icon-]{font-family:icomoon!important;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-dagger:before{content:"\e900"}.icon-quest:before{content:"\e901"}.icon-fist:before{content:"\e902"}.icon-slime:before{content:"\e903"}.icon-fist-profile:before{content:"\e904"}.icon-strg:before{content:"\e905"}.icon-accy:before{content:"\e906"}.icon-weapon:before{content:"\e907"}
+    </style>
+    <body>
+        <div id="overlay"></div>
+        <div id="alert-snackbar" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <a href="#" style="height: 100%">
+                    <img src="https://dueutil.tech/img/logo.png" class="cete-logo" alt="DueUtil logo">
+                    </a>
+                    <span class="mdl-layout-title"><span>DueUtil</span></span>
+                    <div class="cete-header-content">
+                        <div class="centre-vert-content"><span class="mdl-layout-title">How to Due</span></div>
+                    </div>
+                    <div id="cete-header-buttons">
+                        <button id="options-button"
+                            class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                        </button>
+                        <ul style="width:auto" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                            for="options-button">
+                            <a href="#" class="mdl-menu__item">
+                                <li>Login</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <div id="sidebar-user" class="cete-user ">
+                    <img id="sidebar-avatar" class="cete-avatar" src="https://dueutil.tech/img/avatardue.png" alt="Your avatar">
+                    <span class="cete-user-info">
+                    <a href="#">
+                    <button style="font-size:13px; margin: -1px;padding-left: 9%;padding-right: 9%;" class="mdl-narrow-button mdl-js-button mdl-button--raised mdl-button--colored">
+                    Discord Login
+                    </button>
+                    </a>
+                    </span>
+                </div>
+                <span class="mdl-layout-title">General</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="#">DueUtil</a>
+                    <a class="mdl-navigation__link" href="#">How To Guide</a>
+                    <a class="mdl-navigation__link" href="#">Commands</a>
+                    <a class="mdl-navigation__link" href="#">Leaderboard</a>
+                    <a class="mdl-navigation__link" href="#">Partners</a>
+                </nav>
+                <span class="mdl-layout-title">Tools</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="#">Personal Dashboard</a>
+                    <a class="mdl-navigation__link" href="#">Server Dashboard</a>
+                    <a class="mdl-navigation__link" href="#">Upgrader</a>
+                </nav>
+            </div>
+            <main style="position: relative" class="mdl-layout__content">
+                <span id="content-title" class="mdl-layout-title">
+                    <h2>How to Due</h2>
+                </span>
+                <div class="page-content">
+                    <div id="jumpers"><a class="due-link" href="#">New players' guide</a> - <a href="#" class="due-link">Server admins' guide</a></div>
+                    <div style="width:100%">
+                        <h3 id="newpg" style="width:"><i class="material-icons">keyboard_arrow_right</i>New players' guide</h3>
+                    </div>
+                    <div id="player" style="width:94%; min-width: 320px; margin-right: 0px" class="due-command-box mdl-shadow--6dp">
+                        Paste contents of player.txt here.<br>
+                        <textarea id="playertxt"></textarea><br>
+                        <button onclick="document.getElementById('player').innerHTML=dueMarkdownToHTML(document.getElementById('playertxt').value)">Test</button>
+                    </div>
+                    <div style="margin-top: 12px; width:100%">
+                        <h3 id="adming"><i class="material-icons">keyboard_arrow_right</i>Server admins' guide</h3>
+                    </div>
+                    <div id="admin" style="width:94%; min-width: 320px; margin-right: 0px" class="due-command-box mdl-shadow--6dp">
+                        Paste contents of admin.txt here.<br>
+                        <textarea id="admintxt"></textarea>  <br>
+                        <button onclick="document.getElementById('admin').innerHTML=dueMarkdownToHTML(document.getElementById('admintxt').value)">Test</button>
+                    </div>
+                    <div style="width:100%"></div>
+                    <div style="flex-grow: 1;"></div>
+                    <footer id="due-footer" class="mdl-mini-footer">
+                        <div class="mdl-mini-footer__left-section">
+                            <div class="mdl-logo">DueUtil &copy; 2017 MacDue&#x23;4453 (Ben) - <a class="due-link" href="#">Contact</a></div>
+                        </div>
+                    </footer>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
